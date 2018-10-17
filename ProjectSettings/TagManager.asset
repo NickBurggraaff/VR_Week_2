@@ -8,6 +8,8 @@ TagManager:
   - Spawn
   - FxTemporaire
   - Thruster
+  - Head
+  - Robot
   layers:
   - Default
   - TransparentFX
