@@ -53,7 +53,12 @@ public class ShipController : MonoBehaviour
 
     void GetNextPathNode()
     {
-        targetPathNode = PathParentObject.transform.GetChild(pathNodeIndex);
-        pathNodeIndex++;
+        try {
+            targetPathNode = PathParentObject.transform.GetChild(pathNodeIndex);
+            pathNodeIndex++;
+        } catch (System.Exception) {
+            pathNodeIndex = 0;
+            targetPathNode = PathParentObject.transform.GetChild(pathNodeIndex);
+        }
     }
 }
