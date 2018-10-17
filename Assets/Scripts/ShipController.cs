@@ -19,19 +19,20 @@ public class ShipController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(targetPathNode == null)
+        if (targetPathNode == null)
         {
             GetNextPathNode();
-            if(targetPathNode == null)
+            if (targetPathNode == null)
             {
                 pathNodeIndex = 0;
+                GetNextPathNode();
             }
         }
 
         Vector3 directionVector = targetPathNode.position - this.transform.localPosition;
         float distanceThisFrame = Speed * Time.deltaTime;
 
-        if(directionVector.magnitude <= distanceThisFrame)
+        if (directionVector.magnitude <= distanceThisFrame)
         {
             targetPathNode = null;
         }
@@ -39,8 +40,13 @@ public class ShipController : MonoBehaviour
         {
             transform.Translate(directionVector.normalized * distanceThisFrame, Space.World);
             Quaternion rotation = Quaternion.LookRotation(directionVector, Vector3.forward);
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime / 4);
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime / 2);
         }
+    }
+
+    void LateUpdate()
+    {
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y ,0);
     }
 
     void GetNextPathNode()
