@@ -6,6 +6,7 @@ public class DroneController : MonoBehaviour
 {
 
     [SerializeField] private GameObject laser;
+    [SerializeField] private float shootTimer;
 
     void Start()
     {
@@ -15,6 +16,6 @@ public class DroneController : MonoBehaviour
     private void ShootLaser() {
         Instantiate(laser, transform.position, Quaternion.identity);
 
-        Invoke("ShootLaser", 3);
+        Invoke("ShootLaser", shootTimer);
     }
 }

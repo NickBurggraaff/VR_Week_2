@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 5025784385622675653, guid: 9f8c01f7eedb7ee4987fd0d0a973a3cc, type: 3}
+  shootTimer: 0.5
 --- !u!1 &2110688292635117085
 GameObject:
   m_ObjectHideFlags: 0
