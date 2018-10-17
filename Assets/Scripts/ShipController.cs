@@ -9,11 +9,13 @@ public class ShipController : MonoBehaviour
     private int pathNodeIndex = 0;
 
     public float Speed;
+    public string PathName;
+    public float RotationSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        PathParentObject = GameObject.Find("Path");
+        PathParentObject = GameObject.Find(PathName);
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class ShipController : MonoBehaviour
         {
             transform.Translate(directionVector.normalized * distanceThisFrame, Space.World);
             Quaternion rotation = Quaternion.LookRotation(directionVector, Vector3.forward);
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime / 2);
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime * RotationSpeed);
         }
     }
 
