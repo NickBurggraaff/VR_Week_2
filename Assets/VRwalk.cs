@@ -22,19 +22,19 @@ public class VRwalk : MonoBehaviour
     {
         Robot.transform.localEulerAngles = new Vector3(0, Camera.localEulerAngles.y, 0);
         //Angle walk
-        if(Camera.eulerAngles.x >= toggelAngle && Camera.eulerAngles.x < 90.0f)
-        {
-            _Moveforward = true;
-        }
-        else
-        {
-            _Moveforward = false;
-        }
+        //if(Camera.eulerAngles.x >= toggelAngle && Camera.eulerAngles.x < 90.0f)
+        //{
+        //    _Moveforward = true;
+        //}
+        //else
+        //{
+        //    _Moveforward = false;
+        //}
 
-        if (_Moveforward)
-        {
-            Vector3 forward = Camera.TransformDirection(Vector3.forward);
-            _CharacterController.SimpleMove(forward * Speed);
-        }
+        //if (_Moveforward)
+        //{
+        //    Vector3 forward = Camera.TransformDirection(Vector3.forward);
+        //    _CharacterController.SimpleMove(forward * Speed);
+        //}
     }
 }
